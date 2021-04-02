@@ -3,3 +3,4 @@
 <img [src]="product.image"/>
 <b>{{product.price}}</b>
 <button (click)="addCart()">Agregar al Carrito</button>
+<a [routerLink]="['/products', product.id]">Ver Detalle</a>
