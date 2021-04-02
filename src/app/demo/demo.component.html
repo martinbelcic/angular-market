@@ -1,0 +1,13 @@
+
+<input type="text" [(ngModel)]="title">
+{{title}}
+<div *ngIf="title === 'milito'">
+  este es un div
+</div>
+
+<button (click)="this.addItem()">Add item</button>
+
+<ul>
+  <li *ngFor="let name of items">{{name}}</li>
+</ul>
+

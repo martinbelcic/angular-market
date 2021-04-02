@@ -1,15 +1,1 @@
-<input type="text" [(ngModel)]="title">
-{{title}}
-<div *ngIf="title === 'milito'">
-  este es un div
-</div>
-
-<button (click)="this.addItem()">Add item</button>
-
-<ul>
-  <li *ngFor="let name of items">{{name}}</li>
-</ul>
-
-<div *ngFor="let product of products">
-  <app-product [product]="product" (productClicked)="clickProduct($event)"></app-product>
-</div>
+<router-outlet></router-outlet>
