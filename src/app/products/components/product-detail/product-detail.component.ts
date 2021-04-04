@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Product } from '../../../models/product.model';
 
-import { ProductService } from '../../../core/services/product.service';
+import { ProductService } from '../../../core/services/product/product.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -15,13 +15,21 @@ export class ProductDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private ProductService: ProductService,
+    private productService: ProductService,
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      this.product = this.ProductService.getProduct(params.id);
+      this.fetchProduct(params.id);
+      // this.product = this.ProductService.getProduct(params.id);
     });
+  }
+
+  fetchProduct(id: string) {
+    this.productService.getProduct(id)
+      .subscribe(product => {
+        this.product = product;
+      });
   }
 
 }
